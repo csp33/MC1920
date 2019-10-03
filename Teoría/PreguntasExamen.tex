@@ -19,6 +19,7 @@
 \usepackage{titling}
 \usepackage{soul}
 \usepackage{listings}
+\usepackage{mathtools}
 \usepackage{array}
 \usepackage[framemethod=tikz]{mdframed}
 
@@ -71,7 +72,7 @@
   \textsc{ \Large Modelos de Computación\\[0.2cm]}
   \textsc{GRADO EN INGENIERÍA INFORMÁTICA}\\[1cm]
 
-  {\Huge\bfseries Resumen del temario\\}
+  {\Huge\bfseries Preguntas de examen resueltas\\}
  \end{minipage}
 
  \vspace{1.5cm}
@@ -99,13 +100,24 @@
 
 \section{Tema 1}
 
-
-\section{Preguntas de examen}
-\subsection{Tema 1}
 \begin{enumerate}
-  \item
+	\item Determinar si la gramática $G=({S,A,B},{a,b,c,d},P,S)$ donde P es el conjunto de reglas de producción:
+	\[
+		S \implies AB ; A \implies Ab ; A \implies a ; B \implies cB ; B \implies d
+	\]
+	genera un lenguaje de tipo 3.
+	\begin{solution}
+		Comenzamos a generar:
+		\begin{gather*}
+			S \implies AB \xRightarrow[A \implies Ab]{} AbB \xRightarrow[A \implies Ab]{} AbbB \xRightarrow[...]{} Ab^iB \xRightarrow[B \implies cB]{} Ab^icB \\ \xRightarrow[...]{} Ab^ic^jB \xRightarrow[A \implies a]{} ab^ic^jB \xRightarrow[B \implies d]{} ab^ic^jd
+		\end{gather*}
+		Vemos que generamos el lenguaje ${ab^ic^jd}$, que también se puede generar mediante la siguiente gramática:
+		\[
+			S \implies aB ; B \implies bB ; B \implies C ; C \implies cC ; C \implies d
+		\]
+		Como la gramática es de tipo 3 (sólo hay como máximo una variable a la derecha en todas las producciones), el lenguaje también lo es.
+	\end{solution}
 \end{enumerate}
-
 
 
 \end{document}
