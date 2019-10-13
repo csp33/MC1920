@@ -1,0 +1,131 @@
+\documentclass[12pt,spanish]{article}
+\usepackage[spanish]{babel}
+\usepackage{graphicx}
+\usepackage{color}
+\usepackage{xcolor}
+\usepackage{colortbl}
+\usepackage{amsthm,thmtools}
+\usepackage{multirow}
+\usepackage{amsmath}
+\usepackage{subcaption}
+\usepackage{adjustbox}
+\usepackage{multirow}
+\usepackage[hidelinks]{hyperref}
+\usepackage{caption}
+\usepackage{amsthm}
+\usepackage{multicol}
+\usepackage{float}
+\usepackage{amsfonts}
+\usepackage{titling}
+\usepackage{soul}
+\usepackage{listings}
+\usepackage{mathtools}
+\usepackage{array}
+\usepackage[framemethod=tikz]{mdframed}
+
+\graphicspath{ {../img/}}
+\selectlanguage{spanish}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage[a4paper,left=3cm,right=2cm,top=2.5cm,bottom=2.5cm]{geometry}
+
+\newenvironment{solution}{
+	\par
+	\textbf{Solución}
+	\par
+
+}
+{
+}
+
+
+\title{Modelos de Computación}
+\setlength{\droptitle}{10em}
+\author{Carlos Sánchez Páez}
+
+\makeindex
+\begin{document}
+\definecolor{light-gray}{gray}{0.95}
+\lstset{columns=fullflexible,basicstyle=\ttfamily}
+\surroundwithmdframed[
+  hidealllines=true,
+  backgroundcolor=light-gray,
+  innerleftmargin=0pt,
+  innertopmargin=0pt,
+  innerbottommargin=0pt]{lstlisting}
+
+
+\begin{titlepage}
+
+ \newlength{\centeroffset}
+ \setlength{\centeroffset}{-0.5\oddsidemargin}
+ \addtolength{\centeroffset}{0.5\evensidemargin}
+ \thispagestyle{empty}
+
+ \noindent\hspace*{\centeroffset}
+ \begin{minipage}{\textwidth}
+
+  \centering
+  \includegraphics[width=0.9\textwidth]{logo_ugr.jpg}\\[1.4cm]
+
+  \textsc{ \Large Modelos de Computación\\[0.2cm]}
+  \textsc{GRADO EN INGENIERÍA INFORMÁTICA}\\[1cm]
+
+  {\Huge\bfseries Prácticas resueltas\\}
+ \end{minipage}
+
+ \vspace{1.5cm}
+ \noindent\hspace*{\centeroffset}
+ \begin{minipage}{\textwidth}
+  \centering
+
+  \textbf{Autor}\\ {Carlos Sánchez Páez}\\[4ex]
+  \includegraphics[width=0.4\textwidth]{etsiit_logo.png}\\[0.1cm]
+  \vspace{1.5cm}
+  \includegraphics[width=0.5\textwidth]{decsai.jpg}\\[0.1cm]
+  \vspace{1cm}
+  \textsc{Escuela Técnica Superior de Ingenierías Informática y de Telecomunicación}\\
+  \vspace{1cm}
+  \textsc{Curso 2019-2020}
+ \end{minipage}
+\end{titlepage}
+\thispagestyle{empty}
+\newpage
+\tableofcontents{}
+\newpage
+\listoffigures
+\thispagestyle{empty}
+\newpage
+
+\section{Práctica 1}
+
+Construir un autómata finito determinístico para aceptar cadenas de ceros y unos que tengan un número de ceros que no sea múltiplo de 3. Usar JFLAP para simular el autómata.
+
+\begin{solution}
+	Para construir el siguiente autómata emplearemos la metodología inversa: elaboraremos uno que acepte un número de ceros múltiplo de 3 y cambiaremos sus estados finales por normales y viceversa, ya que así es más sencillo.\\
+	Necesitaremos definir tres estados:
+	\begin{itemize}
+		\item $q_0$: hasta ahora el autómata ha leído un número de ceros múltiplo de 3. Es estado final y también inicial, ya que $\epsilon$, la cadena vacía, también debe ser aceptada (0 es múltiplo de 3).
+		\item $q_1$: hemos leído un cero extra.
+		\item $q_2$: hemos leído dos ceros extra.
+	\end{itemize}
+	Las transiciones serán las siguientes:
+	\begin{itemize}
+		\item Si leemos un uno, nos quedamos en el mismo estado: $q_0 \xRightarrow{1} q_0$, $q_1 \xRightarrow{1} q_1$ y $q_2 \xRightarrow{1} q_2$.
+		\item Si leemos un cero, avanzamos al siguiente estado: $q_0 \xRightarrow{0} q_1$, $q_1 \xRightarrow{0} q_2$ y $q_2 \xRightarrow{0} q_0$.
+	\end{itemize}
+	Por tanto, nuestro autómata sería el siguiente:
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.5\textwidth]{p1-1.png}
+	\end{figure}
+	Ahora cambiamos los estados normales por finales y viceversa, obteniendo la solución al problema:
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.5\textwidth]{p1-2.png}
+	\end{figure}
+\end{solution}
+
+
+
+\end{document}
