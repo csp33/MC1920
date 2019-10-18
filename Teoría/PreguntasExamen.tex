@@ -117,6 +117,38 @@
 		\]
 		Como la gramática es de tipo 3 (sólo hay como máximo una variable a la derecha en todas las producciones), el lenguaje también lo es.
 	\end{solution}
+
+	\item Diseñar una máquina de estados que calcule el complemento a dos de un número binario.
+
+	\begin{solution}
+	El complemento a dos de un número binario se calcula obteniendo su complemento a uno y sumándole uno. Veamos algunos ejemplos:
+	\begin{itemize}
+		\item $C_2$(\textcolor{red}{1}\textcolor{blue}{100})=$C_1$(1100)+1=0011+1=\textcolor{red}{0}\textcolor{blue}{100}
+		\item $C_2$(\textcolor{red}{11}\textcolor{blue}{10})=$C_1$(1110)+1=0001+1=\textcolor{red}{00}\textcolor{blue}{10}
+		\item $C_2$(\textcolor{red}{11101}\textcolor{blue}{100})=$C_1$(11101100)+1=00010011+1=\textcolor{red}{00010}\textcolor{blue}{100}
+	\end{itemize}
+	Tras realizar varias operaciones nos damos cuenta de que existe una codificación que se mantiene:
+	\begin{enumerate}
+		\item Comenzamos leyendo el número de derecha a izquierda y escribimos lo que leemos en la salida (también de derecha a izquierda).
+		\item Cuando encontremos el primer 1 lo escribimos en la cinta y a partir de ahí escribimos el complemento a uno del número que leamos (cambiamos 0 por 1 y viceversa).
+	\end{enumerate}
+	\newpage
+	Esta codificación se puede expresar mediante una máquina de \textit{Mealy}:
+	\begin{itemize}
+		\item La cabeza lectora y escritora se desplazará de derecha a izquierda.
+		\item Estados
+			\begin{itemize}
+				\item $q_0$: todavía no he leído el primer 1. Si leo 0, escribo 0 y me mantengo. Si leo 1, paso al estado $q_1$ y escribo 1.
+				\item $q_1$: ya he leído el primer 1. Ahora debo aplicar el complemento a 1 (si leo 1 escribo 0 y viceversa). En ambos casos me mantengo.
+			\end{itemize}
+		Es decir, la máquina sería la siguiente:
+			\begin{figure}[H]
+				\centering
+				\includegraphics{ej2.png}
+			\end{figure}
+	\end{itemize}
+
+	\end{solution}
 \end{enumerate}
 
 
