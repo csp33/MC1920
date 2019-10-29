@@ -20,6 +20,8 @@
 \usepackage{soul}
 \usepackage{listings}
 \usepackage{mathtools}
+\usepackage{amssymb}
+\usepackage{amsfonts}
 \usepackage{array}
 \usepackage[framemethod=tikz]{mdframed}
 
@@ -148,6 +150,28 @@
 			\end{figure}
 	\end{itemize}
 
+	\end{solution}
+	\item Si es posible, construir un autómata finito para el siguiente lenguaje:
+	\[
+		L=\{pcp^{-1} : p \in \{0,1\}^{*}\}
+	\]
+	En caso contrario, demostrar que no existe dicho autómata finito.
+
+	\begin{solution}
+		Para resolver este problema emplearemos el lema de bombeo. De un primer vistazo podemos ver que el lenguaje no es regular, ya que la relación sintáctica establecida (capicúa) es bastante fuerte.
+		\begin{itemize}
+			\item Suponemos que el lenguaje es regular, por lo que debe satisfacer el lema de bombeo.
+			\item Comienzo eligiendo una cadena $z \in L$, por ejemplo, $z=0^nc0^n$. El lema de bombeo dice que $\exists n \in \mathbb{N} : z=uvw$.
+			\item Comienzo a determinar el valor de u, v y w. Como la primera condición nos dice que $|uv| \leq n$, $uv$ debe ser una parte de $0^n$ (si fuera más no se cumpliría la condición). En este punto podemos determinar que $\boldsymbol{w=0^{n-k}c0^n}$ tal que $k<n \in \mathbb{N}$.
+			\item La segunda condición nos dice que $\boldsymbol{|v| \geq 1}$, por lo que $\boldsymbol{v=0^l : l \geq 1$ y $u=0^{k-l}}$.
+			Por ahora tenemos que $\boldsymbol{z=0^nc0^n=uvw=0^{k-l}0^l0^{n-k}c0^n}$.
+			\item Ahora intentaremos buscar la contradicción bombeando, de forma que se incumpla que $\forall i \in \mathbb{N} : uv^iw \in L$. Para $i=0$:
+			\[
+				uv^0w=0^{k-l}0^{n-k}c0^n=0^{\pmb{n-l}}c0^{\pmb{n}} \notin L
+			\]
+			(el resultado tiene un número distinto de ceros a cada lado de $c$).\\
+			Por tanto, queda demostrado que no existe un autómata finito para el lenguaje propuesto.
+		\end{itemize}
 	\end{solution}
 \end{enumerate}
 
