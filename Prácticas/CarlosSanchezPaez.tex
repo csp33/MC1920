@@ -137,11 +137,35 @@ Construir un autómata finito determinístico para aceptar cadenas de ceros y un
 		\includegraphics[width=0.5\textwidth]{p1-2.png}
 	\end{figure}
 \end{solution}
-
+\newpage
 \section{Práctica 2}
-Plantear un lenguaje regular con un número infinito de cadenas. Obtener la expresión regular del lenguaje y convertirlo a autómata finito determinístico minimal y con transiciones nulas mediante JFLAP.
+Plantear un lenguaje regular con un número infinito de cadenas. Obtener la expresión regular del lenguaje y convertirlo a AFD minimal y AFND con transiciones nulas mediante JFLAP.
+\begin{solution}
 
+Tomemos el siguiente lenguaje:
+\[
+		L = \{ ab^icd^je : i,j \in \mathbb{N}\}
+\]
+La expresión regular resultante es $ab^*cd^*e$. El AFND con transiciones nulas obtenido es el siguiente:
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.5\textwidth]{p2-1.jpg}
+\end{figure}
 
+Lo convertimos a AFD y obtenemos:
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.5\textwidth]{p2-2.png}
+\end{figure}
+
+Finalmente, lo minimizamos:
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.5\textwidth]{p2-3.png}
+\end{figure}
+\end{solution}
+
+\newpage
 \section{Práctica 3}
 Crear un fichero LEX, ejecutar el programa sobre él, compilar la salida y ejecutarla sobre un conjunto de datos de entrada.
 
