@@ -1,0 +1,33 @@
+DNI -> 25478521-C
+Entero -> 20
+Ingrediente para la tortilla de patatas -> cebollica.
+NIE -> X-2551923-G
+Matricula -> 2578-BJP
+Matricula provincial -> MA-4857-BN
+Ingrediente para la tortilla de patatas -> huevicos.
+Matricula de ciclomotor -> C6-852-AFR
+Numero de Seguridad Social -> 18/8520147853
+Numero de Seguridad Social -> 58-2369854785
+Matricula -> 2874-HDV
+Ingrediente para la tortilla de patatas -> papicas.
+DNI -> 23874587-H
+NIE -> W-8756523-L
+DNI -> 53349482-Q
+DNI -> 25874102-W
+Real -> 2.6363665
+Real -> -2.2
+Real -> -9994758585985.2
+Entero -> 231231323
+Matricula -> 5874-LRW
+Matricula provincial -> GR-2331-KW
+******************************************
+           Numeros enteros -> 2
+           Numeros reales -> 3
+           Suma de enteros -> 231231343
+           DNI -> 4
+           NIE -> 2
+           Matriculas -> 3
+           Matriculas provinciales -> 2
+           Matriculas de ciclomotor -> 1
+           Numeros de Seguridad Social -> 2
+           Ingredientes para la tortilla de patatas -> 3

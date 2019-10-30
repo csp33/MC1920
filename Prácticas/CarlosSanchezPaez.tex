@@ -21,7 +21,9 @@
 \usepackage{listings}
 \usepackage{mathtools}
 \usepackage{array}
+\usepackage{tikz}
 \usepackage[framemethod=tikz]{mdframed}
+\definecolor{light-gray}{gray}{0.95}
 
 \graphicspath{ {../img/}}
 \selectlanguage{spanish}
@@ -37,6 +39,16 @@
 }
 {
 }
+\lstset{
+  breaklines=true,
+  postbreak=\mbox{\textcolor{red}{$\hookrightarrow$}\space},
+}
+\surroundwithmdframed[
+  hidealllines=true,
+  backgroundcolor=light-gray,
+  innerleftmargin=0pt,
+  innertopmargin=0pt,
+  innerbottommargin=0pt]{lstlisting}
 
 
 \title{Modelos de Computación}
@@ -132,6 +144,27 @@ Plantear un lenguaje regular con un número infinito de cadenas. Obtener la expr
 
 \section{Práctica 3}
 Crear un fichero LEX, ejecutar el programa sobre él, compilar la salida y ejecutarla sobre un conjunto de datos de entrada.
+
+\begin{solution}
+	Mi fichero LEX es el siguiente:
+	\lstinputlisting[backgroundcolor = \color{lightgray!35}]{p3/p3.lex}
+	Básicamente clasifica las entradas en varias categorías:
+	\begin{itemize}
+		\item Números enteros.
+		\item Números reales.
+		\item DNI.
+		\item NIE.
+		\item Matrículas.
+		\item Matrículas provinciales.
+		\item Matrículas de ciclomotor.
+		\item Números de Seguridad Social.
+		\item Ingredientes para una tortilla de patatas.
+	\end{itemize}
+	Con el siguiente fichero de entrada:
+	\lstinputlisting[backgroundcolor = \color{lightgray!35}]{p3/input.txt}
+	se obtiene el siguiente resultado:
+	\lstinputlisting[backgroundcolor = \color{lightgray!35}]{p3/output.txt}
+\end{solution}
 
 
 
