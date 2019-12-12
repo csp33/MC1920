@@ -166,6 +166,31 @@
 			Por tanto, queda demostrado que no existe un autómata finito para el lenguaje propuesto.
 		\end{itemize}
 	\end{solution}
+
+	\item Construir un autómata con pila que acepte palíndromos de longitud par e impar.
+	\begin{solution}
+		El lenguaje que debe ser aceptado es $L=\{u \in \{0,1\}^{*} : u=u^{-1}\}$.\\
+		Tendremos dos estados y tres símbolos:
+		\begin{itemize}
+			\item Estados
+				\begin{itemize}
+					\item $q_1$ cuando estemos apilando.
+					\item $q_2$ cuando estemos desapilando.
+			\end{itemize}
+			\item Símbolos
+			\begin{itemize}
+				\item $Z$. Símbolo de fondo de pila.
+				\item $B$. Recuerda que lo último introducido fue un 0.
+				\item $G$. Recuerda que lo último introducido fue un 1.
+		\end{itemize}
+	\end{itemize}
+	La dinámica sería leer un carácter de la cinta de entrada y meter en la pila el símbolo correspondiente. Cuando lleguemos a la mitad del palíndromo, deberemos desapilar. Si la pila queda vacía al terminar la lectura, aceptaremos la cadena.
+	Nuestro autómata sería el siguiente:
+		\begin{figure}[H]
+			\centering
+			\includegraphics{ej4.png}
+		\end{figure}
+	\end{solution}
 \end{enumerate}
 
 
